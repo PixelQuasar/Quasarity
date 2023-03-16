@@ -7,7 +7,9 @@ class Symbol extends React.Component {
 
     render () {
         return (
-            <div style={{width: this.props.data.width+"px"}} className={`${this.props.data.type} symbol`}>{this.props.data.value}</div>
+            <div className="symbol-container">
+                <div style={{width: this.props.data.width+"px"}} className={`${this.props.data.type} symbol`}>{this.props.data.value}</div>
+            </div>
         )
     }
 }

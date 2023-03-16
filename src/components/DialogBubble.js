@@ -17,7 +17,7 @@ class dialogBubble extends React.Component {
             symbolWidth: 15,
 
             dialogScript: [
-                "Hi! This's quote 1. Click anywhere to skip it.",
+                "Hi! This's quote 1. Click anywhere to skip or reach the next quote. Enjoy!",
                 "And this is quote 2!",
                 "Quote number 3. Just a test.",
                 "Quote 4! The last quote for now.",
@@ -68,7 +68,8 @@ class dialogBubble extends React.Component {
         else if (this.state.currentIndex == this.state.text.length) {
             this.setState({ 
                 quoteStatus: true,
-                currentIndex: this.state.currentIndex+1
+                currentIndex: this.state.currentIndex+1,
+                time: 15
             })
         }
     }
@@ -80,7 +81,7 @@ class dialogBubble extends React.Component {
             else {
                 this.setState({
                     quoteStatus: true,
-                    currentIndex: this.state.text.length-1
+                    time: 0
                 })
             }
         }

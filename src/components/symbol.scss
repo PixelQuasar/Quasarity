@@ -1,19 +1,62 @@
+.symbol-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .symbol {
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    font-family: "main";
-    -webkit-font-smoothing: antialiased;
-    animation-name: fadein;
-    animation-duration: 0.3s;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  font-family: monospace;
+  font-size: 24px;
+  color: #ff6666;
+  //animation: upDown 1s ease-in-out infinite;
+  animation: hueRotate 2s linear infinite, upDown 1s ease-in-out infinite, sizeChange 0.5s ease-in-out infinite;
 }
 
 @keyframes fadein {
-    0% {
-      opacity: 0;
-    }
-  
-    100% {
-      opacity: 1;
-    }
+  0% {
+    opacity: 0;
   }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes upDown {
+  0%,
+  100% {
+    margin-bottom: 0px;
+  }
+
+  50% {
+    margin-bottom: 32px;
+  }
+}
+
+@keyframes hueRotate {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes sizeChange {
+  0%,
+  100% {
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  50% {
+    font-size: 32px;
+    font-weight: 900;
+  }
+}

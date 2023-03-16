@@ -2,17 +2,19 @@ import React, { startTransition } from "react";
 import store from "../store/store";
 import './Dialog.scss'
 import nextQuoteActionCreator from '../store/actionCreators/nextQuoteActionCreator.js'
+import Symbol from "./Symbol";
 class dialogBubble extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
             text: "",
             currentIndex: 0,
-            currentText: "",
+            currentText: [],
             time: 15,
             currentQuoteIndex: 0,
             nextQuote: "",
             quoteStatus: false,
+            width: 16,
 
             dialogScript: [
                 "Привет! Это реплика 1. Нажми еще раз если хочешь ее пропустить.",
@@ -43,7 +45,7 @@ class dialogBubble extends React.Component {
     setQuote = (quote) => {
         this.setState({
             text: quote,
-            currentText: "",
+            currentText: [],
             currentIndex: 0,
             currentQuoteIndex: this.state.currentQuoteIndex+1,
             nextQuote: this.state.dialogScript[this.state.currentQuoteIndex+2]
@@ -53,7 +55,12 @@ class dialogBubble extends React.Component {
         if (this.state.currentIndex != this.state.text.length) {
             setTimeout(() => {
                 this.setState({
-                    currentText: this.state.text.slice(0, this.state.currentIndex),
+                    currentText: [...this.state.currentText, {
+                        id: this.state.currentIndex,
+                        type: "default",
+                        value: this.state.text[this.state.currentIndex],
+                        width: this.state.symbolWidth
+                    }],
                     currentIndex: this.state.currentIndex+1
                 })
             }, this.state.time)
@@ -82,7 +89,7 @@ class dialogBubble extends React.Component {
         return (
             <div className="dialog-window" onClick={this.clickHandler}>
                 <div className="dialog-container">
-                    {this.state.currentText}
+                    {this.state.currentText.map((symbol => <Symbol key={symbol.id} symbol={symbol.value} type={symbol.type}/>))}
                 </div>
             </div>
         )

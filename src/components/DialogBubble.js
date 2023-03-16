@@ -14,13 +14,13 @@ class dialogBubble extends React.Component {
             currentQuoteIndex: 0,
             nextQuote: "",
             quoteStatus: false,
-            width: 16,
+            symbolWidth: 15,
 
             dialogScript: [
-                "Привет! Это реплика 1. Нажми еще раз если хочешь ее пропустить.",
-                "А это реплика 2! ",
-                "Реплика 3. Тест реплик.",
-                "Реплика 4. Последняя реплика!",
+                "Hi! This's quote 1. Click anywhere to skip it.",
+                "And this is quote 2!",
+                "Quote number 3. Just a test.",
+                "Quote 4! The last quote for now.",
             ]
         }
     }
@@ -52,7 +52,7 @@ class dialogBubble extends React.Component {
         })
     }
     componentDidUpdate () {
-        if (this.state.currentIndex != this.state.text.length) {
+        if (this.state.currentIndex < this.state.text.length) {
             setTimeout(() => {
                 this.setState({
                     currentText: [...this.state.currentText, {
@@ -89,7 +89,7 @@ class dialogBubble extends React.Component {
         return (
             <div className="dialog-window" onClick={this.clickHandler}>
                 <div className="dialog-container">
-                    {this.state.currentText.map((symbol => <Symbol key={symbol.id} symbol={symbol.value} type={symbol.type}/>))}
+                    <div className="dialog-text">{this.state.currentText.map((symbol => <Symbol key={symbol.id} data={symbol}/>))}</div>
                 </div>
             </div>
         )

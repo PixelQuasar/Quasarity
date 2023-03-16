@@ -13,7 +13,14 @@
         border-radius: 16px;
         height: fit-content;
         display: flex;
-        max-width: 50%;
+        width: 50%;
+        .dialog-text {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            row-gap: 20px;
+            
+        }
     }
 }
 

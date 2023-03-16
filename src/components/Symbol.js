@@ -1,5 +1,5 @@
 import React from "react"
-
+import './symbol.scss'
 class Symbol extends React.Component {
     constructor (props) {
         super(props)
@@ -7,7 +7,7 @@ class Symbol extends React.Component {
 
     render () {
         return (
-            <div style={{width: this.props.width+"px"}} className={this.props.type}>{this.props.symbol}</div>
+            <div style={{width: this.props.data.width+"px"}} className={`${this.props.data.type} symbol`}>{this.props.data.value}</div>
         )
     }
 }

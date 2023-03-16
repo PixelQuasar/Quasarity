@@ -1,4 +1,19 @@
-div {
+.symbol {
     margin: 0px;
     padding: 0px;
+    display: flex;
+    font-family: "main";
+    -webkit-font-smoothing: antialiased;
+    animation-name: fadein;
+    animation-duration: 0.3s;
 }
+
+@keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }

@@ -1,3 +1,19 @@
-.dialog-container {
-    padding: 32px;
+.dialog-window {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    .dialog-container {
+        padding: 32px;
+        background-color: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        border: 5px solid #ffffff;
+        border-radius: 16px;
+        height: fit-content;
+        display: flex;
+        max-width: 50%;
+    }
 }
+
